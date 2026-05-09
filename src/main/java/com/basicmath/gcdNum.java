@@ -3,10 +3,12 @@ package com.basicmath;
 public class gcdNum {
 
   void main() {
-    naiveApproach(30,60);
+    naiveApproach(30, 60);
     optimalApproach(30, 60);
+    optimalApproachUsingRecursion(30, 60);
   }
 
+  @SuppressWarnings("SameParameterValue")
   private void naiveApproach(int a, int b) {
     var min = Math.min(a, b); // a < b ? a : b;
 
@@ -34,6 +36,27 @@ public class gcdNum {
 
     IO.println(x == 0 ? y : x);
 
+  }
+
+  /**
+   * <p>This method determines the GCD by recursively calculating the remainder
+   * of the greater number divided by the smaller number until the remainder is zero, based on the
+   * principle: {@code gcd(m, n) = gcd(smaller, greater % smaller)}.
+   *
+   * @param m First integer
+   * @param n Second integer
+   * @see <a href="https://cp-algorithms.com/algebra/euclid-algorithm.html">Euclidean algorithm
+   * (cp-algorithms)</a>
+   */
+  private void optimalApproachUsingRecursion(int m, int n) {
+    var greater = Math.max(m, n);
+    var smaller = Math.min(m, n);
+
+    if (smaller == 0) {
+      IO.println(greater);
+    } else {
+      optimalApproachUsingRecursion(smaller, greater % smaller);
+    }
   }
 
 }
