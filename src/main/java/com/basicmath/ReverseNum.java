@@ -15,12 +15,8 @@ public class ReverseNum {
 
     IO.println(revNum);
 
-    IO.println(new Solution().reverse(n));
+    IO.println(reverse(n));
   }
-
-}
-
-class Solution {
 
   public int reverse(long n) {
     long revNum = 0;
@@ -36,9 +32,11 @@ class Solution {
       n = n / 10;
     }
 
-    if(revNum > Integer.MAX_VALUE)
+    if (revNum > Integer.MAX_VALUE) {
       return 0;
+    }
 
     return isNegative ? (int) revNum * -1 : (int) revNum;
   }
+
 }
