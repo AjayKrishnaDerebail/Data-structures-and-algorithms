@@ -49,14 +49,12 @@ public class gcdNum {
    * (cp-algorithms)</a>
    */
   private void optimalApproachUsingRecursion(int m, int n) {
-    var greater = Math.max(m, n);
-    var smaller = Math.min(m, n);
-
-    if (smaller == 0) {
-      IO.println(greater);
-    } else {
-      optimalApproachUsingRecursion(smaller, greater % smaller);
+    if (n == 0) {
+      IO.println(m);
+      return;
     }
+    // Pure Tail Call
+    optimalApproachUsingRecursion(n, m % n);
   }
 
 }
