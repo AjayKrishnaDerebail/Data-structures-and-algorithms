@@ -43,3 +43,5 @@ bin/
 .DS_Store
 
 .idea
+
+src/main/resources/DSA_MASTERY_ROADMAP.md
