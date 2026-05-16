@@ -19,7 +19,7 @@ public class OneToNRecAndNToOne {
   }
 
   /**
-   * Tail recursion
+   * Head recursion
    */
   public void printNumOneToN(int num) {
 
