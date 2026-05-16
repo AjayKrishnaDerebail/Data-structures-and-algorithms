@@ -13,7 +13,7 @@ public class SumRec {
   }
 
   void main() {
-
     IO.println(sum(10));
   }
+
 }
