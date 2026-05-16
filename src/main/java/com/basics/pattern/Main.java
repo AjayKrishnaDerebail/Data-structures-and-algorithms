@@ -1,4 +1,4 @@
-package com.pattern;
+package com.basics.pattern;
 
 public class Main {
 
