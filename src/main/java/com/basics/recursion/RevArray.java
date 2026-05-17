@@ -15,6 +15,23 @@ public class RevArray {
     return revArrayNonInPlace2Pointer(arr, i + 1, revArr, size - 1);
   }
 
+  /**
+   * Reverses an array efficiently in-place using a two-pointer swapping strategy. Preferred
+   * approach that optimizes performance by operating in O(1) auxiliary space.
+   */
+  int[] revArrayInPlace(int[] arr, int left, int right) {
+    if (left >= right) {
+      return arr;
+    }
+
+    var temp = arr[left];
+    arr[left] = arr[right];
+    arr[right] = temp;
+
+    return revArrayInPlace(arr, left + 1, right - 1);
+
+  }
+
   void main() {
     int[] arr = new int[]{1, 2, 3, 4, 5};
 
@@ -25,6 +42,13 @@ public class RevArray {
       IO.println(j);
     }
 
+    int[] arr2 = new int[]{6, 7, 8, 9, 10};
+
+    int[] revArr2 = revArrayInPlace(arr2, 0, arr2.length - 1);
+
+    for (int j : revArr2) {
+      IO.println(j);
+    }
   }
 
 }
