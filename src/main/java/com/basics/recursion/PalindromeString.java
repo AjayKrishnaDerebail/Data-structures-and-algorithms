@@ -49,9 +49,38 @@ public class PalindromeString {
     return true;
   }
 
+  public boolean isPalindromeRecursion(String s, int left ,int right) {
+    if (s == null || s.length() <= 1) {
+      return true;
+    }
+
+    if(left >= right)
+      return true;
+
+    if(!Character.isLetterOrDigit(s.charAt(left)))
+      return isPalindromeRecursion(s , left + 1 , right);
+
+    if(!Character.isLetterOrDigit(s.charAt(right)))
+      return isPalindromeRecursion(s , left , right - 1);
+
+    if(Character.toLowerCase(s.charAt(left)) == Character.toLowerCase(s.charAt(right))) {
+      return isPalindromeRecursion(s, left + 1, right - 1);
+    }
+
+    return false;
+  }
+
   void main() {
-    IO.println(isPalindromeHeavyRework("A man, a plan, a canal: Panama"));
-    IO.println(isPalindromeOptimal("A man, a plan, a canal: Panama"));
+    final var s = "A man, a plan, a canal: Panama";
+    final var r = "!AmannamA";
+    final var t = "!AmanamA";
+    final var u = "!AanamA";
+    IO.println(isPalindromeHeavyRework(s));
+    IO.println(isPalindromeOptimal(s));
+    IO.println(isPalindromeRecursion(s, 0, s.length() - 1));
+    IO.println(isPalindromeRecursion(r, 0, r.length() - 1));
+    IO.println(isPalindromeRecursion(t, 0, t.length() - 1));
+    IO.println(isPalindromeRecursion(u, 0, u.length() - 1));
   }
 
 }
