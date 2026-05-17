@@ -17,7 +17,9 @@ public class RevArray {
 
   /**
    * Reverses an array efficiently in-place using a two-pointer swapping strategy. Preferred
-   * approach that optimizes performance by operating in O(1) auxiliary space.
+   * approach that optimizes performance by operating in O(1) auxiliary space. left == right works
+   * for odd length arrays. For even length arrays, it will reverse up to the second last element ,
+   * hence we need >= check
    */
   int[] revArrayInPlace(int[] arr, int left, int right) {
     if (left >= right) {
